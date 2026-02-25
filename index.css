@@ -1,0 +1,1579 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   UNIFIED PAGE HEADERS (ALL PAGES EQUAL)
+   ========================================= */
+.mainTitle
+ {
+    color: #00C0C0;
+    text-shadow: -2px -2px 0 black, 2px 2px 0 black, -2px 2px 0 black, 2px -2px 0 black, 0px 0px 30px white, 0px 0px 50px white;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px !important; 
+    margin-bottom: 100px !important;
+    height: auto !important;
+    min-height: 150px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    line-height: 1.1 !important;
+    font-size: clamp(50px, 10vw, 110px) !important;
+    }
+
+
+/* Force all H1s inside these titles to behave exactly the same */
+.small-header h1 {
+    margin: 0 !important; 
+}
+
+
+   /* UNIVERSAL H1 - Removes the 280px margin causing the "About" drop */
+.mainTitle h1, 
+.mainTitle.small-header h1{
+    margin-top: 280px;
+    font-size: 120px;  
+    font-size: clamp(40px, 8vw, 110px); /* Automatically scales between mobile/desktop */
+    margin: 0; 
+    margin-bottom: 100px !important;
+    padding: 0;
+    line-height: 1.1;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 900px) {
+    #mainTitle {
+        font-size: 60px;
+        width: 90%;
+        height: auto;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    .col {
+        width: 90%;
+        height: auto;
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    .col h3 {
+        font-size: 32px;
+    }
+
+    #benefits,
+    .three-columns,
+    .testimonial-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .testimonial {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    #cta h2 {
+        font-size: 28px;
+    }
+
+    .cta-button {
+        font-size: 20px;
+        padding: 12px 30px;
+    }
+
+    #video-container iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    body {
+        /* 1. Core: Intense Cyan (#00d2ff)
+           2. Inner Glow: Electric Blue (#0077ff)
+           3. Nebula: Deep Purple (#411464) 
+           4. Space: Deep Black (#060b10)
+        */
+        background: linear-gradient(
+            180deg, 
+            #000000 0%,         /* Deepest Black */
+            #1a0522 25%,        /* Darker Wine shadow for better contrast */
+            #2d093b 35%,        /* Your purple tone */
+            #0011ff 48%,        /* Fast transition to blue */
+            #00f2ff 50%,        /* NEON LIGHTNING STRIKE (Center) */
+            #2d35a1 52%,        /* Fast transition to indigo */
+            #2d093b 65%,        /* Returning to purple */
+            #1a0522 75%,        /* Dark Wine shadow */
+            #000000 100%        /* Absolute Bottom */
+        ) !important;
+        
+        background-attachment: fixed !important;
+        background-size: cover !important;
+        background-color: #060b10 !important; /* Solid fallback */
+        min-height: 100vh;
+        
+        /* Fix for mobile viewports */
+        display: flex;
+        flex-direction: column;
+    }
+
+
+}
+
+/* ===== Sticky Header ===== */
+#site-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(34, 25, 25, 0.1); /* קו רק למטה */
+    z-index: 1000;
+}
+
+
+.navbar {
+    background: transparent !important;
+    display: flex;
+    justify-content: flex-start; /* Groups items to the left */
+    align-items: center;
+    padding: 5px 40px;
+    min-height: 10px;
+    gap: 30px; /* This controls the space between Logo and Menu */
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    /* This forces a 100px gap to the right of the logo */
+    margin-right: 50; 
+}
+
+.navbar .logo a {
+    padding-right: 50px;
+}
+
+.navbar img {
+    max-width: 200px;
+    height: auto;
+    display: block;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    /* THIS IS THE GAP BETWEEN LOGO AND THE FIRST LINK */
+    margin-left: 80px; 
+    /* This is the space BETWEEN individual links (Home, About, etc) */
+    gap: 30px; 
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.nav-links li a:hover {
+    color: #00C0C0;
+}
+
+/* Hide on scroll */
+#site-header.hide {
+    transform: translateY(-100%);
+}
+
+/* Navbar layout */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Logo */
+.navbar img {
+    width: 250px;
+    height: 125px;
+}
+
+/* Desktop menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Menu links */
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.nav-links li a:hover {
+    color: #00C0C0;
+}
+
+/* ===== HAMBURGER BUTTON (hidden on desktop) ===== */
+.hamburger {
+    display: none;
+    font-size: 36px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ===== MOBILE MENU STYLES ===== */
+@media (max-width: 900px) {
+
+    /* Make the nav layout vertical */
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Show the hamburger */
+    .hamburger {
+        display: block;
+    }
+
+    /* Hide menu by default on mobile */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        background: rgba(0, 0, 0, 0.85);
+        width: 100%;
+        padding: 20px 0;
+        margin-top: 15px;
+        border-radius: 10px;
+    }
+
+    /* Show menu when toggled */
+    .nav-links.show {
+        display: flex;
+    }
+
+    /* Shrink logo for mobile */
+    .navbar img {
+        width: 150px;
+        height: auto;
+        
+    }
+}
+
+
+
+body {
+    padding-top: 70px;
+    /* adjust if header height changes */
+}
+
+/* ===== Responsive (mobile) ===== */
+@media (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+}
+
+/* Adjust page top padding so content isn't hidden under fixed menu */
+body {
+    padding-top: 80px;
+    /* Adjust to menu height */
+}
+
+/* ===== BODY ===== */
+body {
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    padding: 10px;
+}
+
+
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.05s forwards;
+}
+
+
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade animation for images (transform only, opacity stays fixed) */
+.fade-img {
+    opacity: 0;
+    /* start fully transparent */
+    transform: translateY(20px);
+    animation: fadeInImg 3s forwards;
+}
+
+@keyframes fadeInImg {
+    to {
+        opacity: 0.9;
+        /* final semi-transparent value */
+        transform: translateY(0);
+    }
+}
+
+
+
+h2.subTitle{
+    font-size: 60px;
+}
+
+/* Phone Style (Mobile) */
+@media (max-width: 768px) {
+    h2.subTitle {
+        /* 1. The Secret Sauce: Keeps padding INSIDE the 100% width */
+        box-sizing: border-box !important; 
+        
+        /* 2. Size & Alignment */
+        font-size: 36px !important; 
+        text-align: center !important;
+        line-height: 1.2 !important;
+        
+        /* 3. Spacing */
+        width: 100% !important;
+        padding: 0 25px !important; /* Increased to 25px to keep it away from edges */
+        margin: 20px auto !important; /* 'auto' centers the block itself */
+        
+        display: block !important;
+    }
+}
+
+/* ===== IMAGES ===== */
+img {
+    display: block;
+    width: 800px;
+    height: 400px;
+    margin: 40px auto 0 auto;
+    border-radius: 15px;
+}
+
+@media (max-width: 900px) {
+    img {
+        width: 90%;
+        height: auto;
+        /* keeps proportions */
+    }
+}
+
+/* ===== HEADINGS ===== */
+h2 {
+    text-align: center;
+    font-size: 64px;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;
+}
+
+h3 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+/* ===== PARAGRAPHS ===== */
+p {
+    font-size: 26px;
+}
+
+/* ===== VIDEO ===== */
+#video-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+    margin-top: 40px;
+}
+
+/* ===== COLUMNS ===== */
+.col {
+    width: 350px;
+    background: rgba(0, 0, 0, 0.45);
+    /* semi-transparent black */
+    padding: 20px;
+    border-radius: 15px;
+    height: 350px;
+    backdrop-filter: blur(5px);
+    /* glass effect */
+    color: white;
+}
+
+.col h3 {
+    margin-bottom: 10px;
+    font-size: 48px;
+}
+
+/* ===== SECTIONS ===== */
+#benefits,
+.three-columns,
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    text-align: center;
+}
+
+#testimonials {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 48px;
+    margin-bottom: 40px;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;
+}
+
+.testimonial {
+    width: 350px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.7) !important; /* Dark semi-transparent */    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    color: white;
+    font-size: 18px;
+}
+
+.testimonial h4 {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* ===== CTA ===== */
+#cta {
+    margin-top: 80px;
+    text-align: center;
+    color: white;
+}
+
+#cta h2 {
+    font-size: 44px;
+    margin-bottom: 25px;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black, 0px -2px 0 black, 0px 2px 0 black, -2px 0px 0 black, 2px 0px 0 black;
+}
+
+.cta-button {
+    margin-left: auto;
+    padding: 15px 40px;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.55);
+    border: 2px solid white;
+    border-radius: 12px;
+    text-decoration: none;
+    backdrop-filter: blur(6px);
+    transition: 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+
+/* ===== FOOTER STYLING ===== */
+.site-footer {
+    width: 70%;
+    margin: 50px auto;
+    background-image: url("footer.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 40px 60px 20px 60px;
+    font-family: 'Georgia', serif;
+    border-radius: 20px;
+    position: relative; /* REQUIRED: This allows us to pin the button inside */
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
+    min-height: 250px; /* Gives enough space for the stacked links and button */
+
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    /* KEY 2: ALIGNMENT */
+    /* 'center' ensures the left and right sides stay on one slim line */
+    align-items: center; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Left Side: Brand & Socials */
+.footer-brand {
+    font-size: 40px; /* Reduced from 64px */
+    line-height: 1.1;
+    margin: 0;
+}
+
+.footer-brand span {
+    display: block;
+}
+
+.footer-socials {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.footer-socials a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    /* 1. INCREASE OPACITY: From 0.8 to 1.0 */
+    opacity: 1; 
+    
+    /* 2. ADD A DARK TINT: Makes the white text stand out from the photo */
+    background: rgba(0, 0, 0, 0.4);
+    
+    /* 3. BORDER FIX: Changed red (255,0,0) to Teal (#00C0C0) to match your site */
+    /* Increased opacity from 0.2 to 0.8 so you can actually see the line */
+    border: 2px solid #E02BF5;
+    box-shadow: 0 0 8px rgba(224, 43, 245, 0.4);
+    
+    background: rgba(0, 0, 0, 0.6); /* Dark background so text stays readable */
+    padding: 12px 25px;
+    border-radius: 8px;
+    min-width: 250px; /* Keeps all buttons the same width */
+    transition: all 0.3s ease-in-out;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-socials a:hover {
+    /* Brightens the purple and increases the glow on hover */
+    border-color: #FF00FF;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+    transform: scale(1.03); /* Slight pop out effect */
+    background: rgba(224, 43, 245, 0.1); /* Very subtle purple tint inside */
+}
+
+/* Right Side: Tagline */
+.footer-right {
+    text-align: right;
+}
+
+.footer-tagline {
+    font-size: 32px;
+    line-height: 1.4;
+    color: #ffffff;
+}
+
+.highlight-blue {
+    color: #1a73e8; 
+}
+
+
+
+/* TOP RIGHT CORNER: The Button Positioning */
+.footer-right {
+    margin: 10px 0; 
+}
+
+.enroll-btn {
+    color: white;
+    text-decoration: none;
+    border: 3px solid #E02BF5; 
+    background: rgba(224, 43, 245, 0.2);
+    
+    /* 1. BIGGER SIZE */
+    padding: 20px 20px; 
+    font-size: 18px; 
+    
+    border-radius: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    /* 2. STRONGER GLOW */
+    box-shadow: 0 0 25px rgba(224, 43, 245, 0.7);
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.enroll-btn:hover {
+    background: rgba(224, 43, 245, 0.4);
+    box-shadow: 0 0 40px rgba(255, 0, 255, 1);
+    transform: scale(1.1); /* Makes it pop when hovered */
+}
+
+
+/* BOTTOM COPYRIGHT BAR */
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 2px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 900px) {
+    .footer-top {
+        flex-direction: column;
+        text-align: left;
+    }
+    
+    .footer-right {
+        text-align: left;
+        margin-top: 40px;
+    }
+    
+    .footer-socials {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-brand {
+        font-size: 40px;
+    }
+}
+
+
+/* About */
+
+#aboutTitle {
+    height: 200px;    /* Reduced from 700px */
+    width: auto;      /* Allows it to fit the text naturally */
+    margin-bottom: 0; /* Removes extra bottom spacing */
+    margin-top: 20px; /* Gives a little breathing room from the header */
+}
+
+#naor {
+    /* 1. Dimensions must be equal for a perfect circle */
+    width: 300px;
+    height: 300px;
+    
+    /* 2. The magic for the circle shape */
+    border-radius: 50%;
+    
+    /* 3. The black border you requested */
+    border: 15px solid black;
+    
+    /* 4. Keeps the photo from stretching */
+    object-fit: cover;
+    
+    /* 5. Optional: Add a subtle glow to match your site's neon vibe */
+    box-shadow: 0 0 15px rgba(224, 43, 245, 0.4);
+    
+    /* Center it if it's inside a flex container */
+    margin: 20px auto;
+    display: block;
+
+    .about-headline {
+    font-size: 40px; /* Slightly smaller to fit the longer title on one line */
+    line-height: 1.3;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+}
+
+.highlight {
+    color: #00C0C0; /* Your Teal color */
+    font-weight: 800;
+}
+}
+
+/* Container Enhancement */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 192, 192, 0.2); /* Subtle teal border */
+    border-radius: 40px;
+    backdrop-filter: blur(15px);
+}
+
+/* Centered Container */
+.about-page-container {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+/* Glass effect matching homepage cards */
+.glass-card {
+    width: 60%; /* Same width as homepage content */
+    background: rgba(0, 0, 0, 0.6); /* Darker semi-transparent background */
+    backdrop-filter: blur(15px);
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+
+.about-subtitle {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* Quote styling */
+.quote-container p {
+    font-size: 26px;
+    color: #E02BF5; /* Your purple branding color */
+    font-style: italic;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(224, 43, 245, 0.3);
+    padding-bottom: 20px;
+}
+
+.about-description p {
+    font-size: 26px;
+    line-height: 1.8;
+    color: white; /* Removed the teal/blue colors from middle of text */
+    margin-bottom: 25px;
+    text-align: justify; /* Professional alignment */
+}
+
+/* Bold text for emphasis instead of colors */
+.about-description strong {
+    color: white;
+    font-weight: 700;
+}
+
+
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .glass-card {
+        width: 90%;
+        padding: 30px;
+    }
+}
+
+
+/* Mastery Specific Layout */
+
+#masteryTitle{
+    height: auto;    /* Much smaller than the homepage 700px */
+    min-height: 0 !important;
+    margin-bottom: 0 !important;  /* Remove bottom spacing from the title box */
+    padding-bottom: 0 !important;
+    display: block !important;    /* Block is easier to manage for manual spacing */
+    text-align: center;
+}
+
+#masteryTitle h1 {
+    margin-top: 150px;
+    margin-bottom: 1px;
+    font-size: 110px;  /* Adjust this to match your homepage "card" titles */  
+}
+
+
+.mastery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    align-items: stretch; /* Ensures cards are same height */
+}
+
+.m-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes content apart, buttons to bottom */
+    transition: transform 0.3s ease;
+}
+
+.m-card i {
+    font-size: 40px;
+    color: #00d2ff; /* Your photo blue */
+    margin-bottom: 20px;
+}
+
+.m-card:hover {
+    transform: translateY(-5px);
+    border-color: #00C0C0;
+}
+
+.m-card .skill-pill.large-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Uniform Size */
+    width: 100%; 
+    max-width: 220px;
+    min-height: 55px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   MOBILE-SPECIFIC ADJUSTMENTS
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .mastery-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        gap: 20px;
+        padding: 15px;
+    }
+
+    /* Shrink title size specifically for mobile screens */
+    .m-card h3 {
+        font-size: 1.3rem; 
+    }
+
+    .m-card {
+        padding: 25px 15px;
+    }
+
+    /* Ensure the button doesn't touch the card edges on tiny phones */
+    .m-card .skill-pill.large-pill {
+        width: 90%;
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   IDENTITY SECTION (Journey Cards)
+   ========================================= */
+
+.identity-grid {
+    display: grid !important;
+    /* On Desktop: 3 columns. On Tablet: 2. On Mobile: 1. */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    justify-items: center;
+}
+
+.identity-item {
+    border: 4px solid #E02BF5;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 350px; /* Prevents cards from becoming giant on desktop */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.identity-item h4 {
+    color: #E02BF5;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+/* Force vertical stack on mobile specifically */
+@media screen and (max-width: 768px) {
+    .identity-grid {
+        grid-template-columns: 1fr !important; /* Forces 1 card per row */
+    }
+    
+    .identity-item {
+        max-width: 100%; /* Allows card to fill phone width */
+    }
+}
+
+
+
+.identity-item h4 {
+    color: #E02BF5;
+    margin-bottom: 5px;
+    font-size: 26px;
+    text-align: center;
+}
+
+.identity-item p{
+    text-align: center;
+}
+
+.guarantee-box {
+    text-align: center;
+    background: rgba(0, 192, 192, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px dashed #00C0C0;
+}
+
+.guarantee-box i {
+    font-size: 50px;
+    color: #00C0C0;
+    margin-bottom: 10px;
+}
+
+.large-pill {
+    font-size: 22px !important;
+    padding: 20px 40px !important;
+    background: linear-gradient(90deg, #E02BF5, #00C0C0) !important;
+}
+
+/* Responsive Fixes */
+@media (max-width: 900px) {
+    .mastery-grid, .identity-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.hero-title-large {
+    /* Desktop Styles (Keep your design) */
+    font-size: 70px; 
+    letter-spacing: -5px; 
+    font-weight: 900;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1.1;
+    display: block;
+    width: 100%;
+    margin: 0 auto 40px auto;
+    
+    /* Force words to stay together */
+    word-break: keep-all;
+    overflow-wrap: normal;
+}
+
+/* THE MOBILE FIX (For screens under 600px) */
+@media screen and (max-width: 600px) {
+    .hero-title-large {
+        /* 1. Shrink font so long words like 'MONTHLY' fit horizontally */
+        font-size: 30px !important; 
+        
+        /* 2. CRITICAL: Reset spacing so letters don't overlap and break */
+        letter-spacing: 0px !important; 
+        
+        /* 3. Give it breathing room */
+        width: 90% !important;
+        line-height: 1.2 !important;
+        margin-bottom: 25px;
+        padding: 0 5%;
+    }
+}
+
+/* Container for the text items */
+.mastery-highlights {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+
+/* Individual items without dots */
+.highlight-item h3 {
+    font-size: 40px;
+    color: #00C0C0; /* Your brand teal */
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.highlight-item p {
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Remove any potential bullet points globally in this section */
+.mastery-highlights, .mastery-section ul {
+    list-style: none !important;
+    padding: 0 !important;
+}
+
+/* Container Styling */
+.cta-box {
+    text-align: center;
+    padding: 80px 40px;
+    margin-top: 60px;
+    background: rgba(255, 255, 255, 0.03); /* Extremely subtle glass effect */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-box h2 {
+    font-size: 60px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.cta-box p {
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 40px;
+}
+
+/* --- MOBILE REPAIR (The Fix for Phone) --- */
+@media (max-width: 768px) {
+    .cta-box {
+        padding: 40px 20px; /* Reduced padding gives text more horizontal room */
+        width: 95%;
+        margin: 40px auto;
+    }
+
+    .cta-box h2 {
+        /* This makes it significantly bigger on phone */
+        font-size: 50px !important; 
+        line-height: 1.1 !important;
+        padding: 0 10px;
+    }
+
+    .cta-box p {
+        font-size: 18px !important;
+        padding: 0 10px;
+        line-height: 1.4;
+    }
+}
+
+/* The Primary Button (ENROLL IN THE COURSE) */
+.skill-pill.large-pill {
+    display: inline-block;
+    padding: 22px 60px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Premium Gradient */
+    background: linear-gradient(135deg, #E02BF5 0%, #00C0C0 100%);
+    border-radius: 8px; /* Slightly rounded is more professional than a full pill */
+    border: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.skill-pill.large-pill:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 192, 192, 0.4); /* Teal glow on hover */
+    letter-spacing: 4px; /* Subtle "expansion" effect */
+}
+
+/* Secondary Links Section */
+.secondary-links {
+    margin-top: 40px;
+}
+
+.secondary-links p {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.secondary-links a {
+    color: #00C0C0;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 5px;
+    transition: 0.3s;
+    border-bottom: 1px solid transparent;
+}
+
+.secondary-links a:hover {
+    color: #ffffff;
+    border-bottom: 1px solid #00C0C0;
+    text-shadow: 0 0 10px rgba(0, 192, 192, 0.8);
+}
+
+/* Course Page Title Spacing */
+#courseTitle {
+    height: auto;    /* Much smaller than the homepage 700px */
+    min-height: 0 !important;
+    margin-bottom: 0 !important;  /* Remove bottom spacing from the title box */
+    padding-bottom: 0 !important;
+    display: block !important;    /* Block is easier to manage for manual spacing */
+    text-align: center;
+}
+
+#courseTitle h1 {
+    margin-top: 150px;
+    margin-bottom: 1px;
+    font-size: 110px;  /* Adjust this to match your homepage "card" titles */  
+}
+
+
+
+/* The H2 inside the Glass Card */
+.about-title {
+    font-size: 60px !important;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Video Styling - Fixed Height "High" Format */
+.video-section {
+    margin: 60px 0;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-heading {
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.video-wrapper {
+    width: 100%;
+    /* This makes it "less wide" */
+    max-width: 100%; 
+    margin: 0 auto 20px auto;
+    height: 450px;
+    
+    /* REMOVE padding-top HACK - USE FLEX OR BLOCK */
+    display: block;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-wrapper iframe {
+    /* FORCE THE HEIGHT THROUGH CSS */
+    width: 100%;
+    height: 450px !important; 
+    border: 0;
+    display: block;
+}
+
+.video-info {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 15px !important;
+    text-align: center;
+}
+
+.video-divider {
+    border: none !important; 
+    border-top: 3px solid #E02BF5 !important; 
+    height: 0px !important; 
+    margin: 15px 0 !important; 
+    opacity: 1 !important; 
+    width: 100%;
+    display: block;
+    clear: both;
+}
+
+/* Article Content Styles */
+.article-body {
+  text-align: left;
+  line-height: 1.8;
+  color: #e0e0e0;
+}
+.concept-section {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.concept-section:last-child {
+  border-bottom: none;
+}
+.concept-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  color: #00d2ff;
+}
+.concept-header h2 {
+  margin: 0;
+  font-size: 26px;
+  color: #ffffff; /* Solid white for maximum contrast */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Helps text stand out from background */
+  font-weight: 700;
+}
+
+.concept-header i {
+  font-size: 24px;
+  color: #00d2ff; /* Keeps the brand color on the icon only */
+}
+.intro-text {
+  font-size: 1.15rem;
+  margin-bottom: 50px;
+  color: #ccc;
+  border-left: 3px solid #00d2ff;
+  padding-left: 20px;
+}
+.article-body strong {
+  color: #00d2ff;
+}
+
+   /* Layout adjustment to stack articles vertically */
+      .article-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .article-item {
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 30px;
+        transition: transform 0.3s ease;
+        text-decoration: none;
+        color: white;
+      }
+
+      .article-item:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .article-icon {
+        font-size: 40px;
+        margin-right: 30px;
+        min-width: 60px;
+        text-align: center;
+        color: #00d2ff;
+      }
+
+      .article-content h3 {
+        margin: 0 0 10px 0;
+        font-size: 24px;
+      }
+
+      .article-content p {
+        margin: 0 0 20px 0;
+        color: #ccc;
+        line-height: 1.6;
+      }
+
+
+
+/* --- Universal 100% Width Video Fix --- */
+
+.video-section {
+    width: 100%;
+    margin: 40px 0;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    /* 62% is the 'Goldilocks' ratio: 
+       Wide enough for standard videos, tall enough for your portfolio stats */
+    padding-bottom: 62.5%; 
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    /* Forces the video to cover the area without black side bars */
+    object-fit: cover; 
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (min-width: 1024px) {
+    /* On large screens, we don't want the video to be INFINITELY wide 
+       otherwise it becomes too tall to see the whole thing at once */
+    .video-wrapper {
+        max-width: 900px;
+        margin: 0 auto;
+        padding-bottom: 506px; /* Fixed height for consistent look on PC */
+    }
+}
+
+@media (max-width: 768px) {
+    .video-wrapper {
+        padding-bottom: 65%; /* Slightly taller on mobile for better visibility */
+    }
+    
+    .glass-card {
+        padding: 15px; /* Gives more room for the video to be wide */
+    }
+}
+
+/* --- Snowball Analytics Targeted Tall Fix --- */
+
+/* Only affects the video inside the snowballContainer */
+#snowballContainer .video-wrapper {
+    position: relative;
+    width: 100%;
+    /* 75% creates the 4:3 ratio to fit your specific thumbnail height */
+    padding-bottom: 75%; 
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-radius: 12px;
+}
+
+#snowballContainer .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Desktop sizing for Snowball specifically */
+@media (min-width: 769px) {
+    #snowballContainer .video-section {
+        max-width: 750px; 
+        margin: 20px auto;
+    }
+}
+
+/* =========================================
+   MOBILE-ONLY REPAIR (768px and below)
+   ========================================= */
+
+
+@media (max-width: 768px) {
+
+    /* 1. Fix the Title "Dividend Mastery" (Stops it from leaking) */
+    .mainTitle {
+        width: 80% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 80px auto 20px auto !important; /* Space for header */
+        padding: 20px !important;
+        display: flex !important;
+        border-radius: 0 !important; /* Removes the 150px circle on mobile */
+        
+    }
+
+    .mainTitle h1 {
+        font-size: 60px !important; 
+        line-height: 1.1 !important;
+        word-wrap: break-word !important;
+    }
+
+    /* 2. Fix Horizontal Scrolling (The #1 reason sites look 'destroyed') */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* 3. Navbar & Hamburger Fix */
+    .navbar {
+        display: flex;
+        padding: 10px 20px !important;
+        justify-content: space-between !important;
+        flex-direction: row !important;
+        gap: 70px !important;
+    }
+
+    .navbar img {
+        width: 120px !important; /* Smaller logo for phone */
+        height: auto !important;
+    }
+
+    .navbar .cta-button {
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 8px 15px;
+    font-size: 14px;
+    white-space: nowrap;
+    border: 1px solid #E02BF5;
+    background: rgba(224, 43, 245, 0.1);
+    }
+
+
+    .hamburger {
+        display: block !important; /* Force show the menu icon */
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .nav-links {
+        display: none; /* Controlled by your JS 'show' class */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column !important;
+        margin: 0 !important;
+        padding: 20px 0 !important;
+    }
+
+    /* 4. Glass Cards & Columns (Forces them to stack) */
+    .glass-card, .about-container {
+        width: 92% !important;
+        padding: 20px !important;
+        margin: 10px auto !important;
+    }
+
+    #benefits, .three-columns, .testimonial-container, .mastery-grid {
+    display: flex !important;
+    flex-direction: row !important; /* CHANGE THIS FROM COLUMN TO ROW */
+    flex-wrap: wrap !important;     /* Now wrap will actually work */
+    justify-content: center !important;
+    align-items: stretch !important; /* Makes all cards the same height */
+    gap: 20px !important;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+    #benefits, .three-columns, .testimonial-container, .mastery-grid, .identity-grid {
+        flex-direction: column !important; /* Stacks them only on phones */
+    }
+
+
+
+    .col, .testimonial, .m-card {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* 5. Images & Videos (Stops them from being 800px wide) */
+    img, #video-container iframe, .video-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    #snowballContainer .video-wrapper {
+        padding-bottom: 75% !important; /* Keep the specific ratio you liked */
+    }
+
+    /* 6. Footer Fix */
+    .site-footer {
+        width: 95% !important;
+        padding: 30px 15px !important;
+        background-size: cover !important;
+    }
+
+    .footer-top {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    .footer-socials a {
+        min-width: 100% !important; /* Full width buttons on phone */
+    }
+
+    /* 3. Force Testimonials to fit the screen */
+    .testimonial, .col, .m-card {
+        width: 95% !important;
+        max-width: 100% !important;
+        margin: 10px auto !important;
+    }
+
+    /* 4. Ensure Text doesn't touch edges */
+    p, h2, .testimonial p {
+        font-size: 18px !important;
+        padding: 0 15px !important;
+    }
+}
+
+/* =========================================
+   GRID SYSTEM (3 Columns Desktop / 1 Column Mobile)
+   ========================================= */
+.mastery-grid, .testimonial-container, .three-columns {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    max-width: 1200px; /* Limits width on big screens */
+    margin: 0 auto; /* Centers the whole grid */
+    padding: 20px;
+    box-sizing: border-box; /* Crucial: keeps padding inside the width */
+}
+
+/* THE CARDS (Fixed for both Desktop & Mobile) */
+.m-card, .testimonial, .col {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    color: white;
+    text-align: center;
+    box-sizing: border-box !important;
+    
+    /* Desktop Logic: 3 per row (minus gap) */
+    flex: 0 1 calc(33.333% - 25px); 
+    min-width: 300px; /* Prevents them from getting too skinny */
+}
+}
+
