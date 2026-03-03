@@ -101,21 +101,35 @@
 
 @media screen and (max-width: 768px) {
     body {
-        /* Background gradient: transitioning from Deep Purple to Space Black */
-        background: radial-gradient(circle, #2a0a4d 0%, #05010a 100%) !important;
+        /* 1. Core: Intense Cyan (#00d2ff)
+           2. Inner Glow: Electric Blue (#0077ff)
+           3. Nebula: Deep Purple (#411464) 
+           4. Space: Deep Black (#060b10)
+        */
+        background: linear-gradient(
+            180deg, 
+            #000000 0%,         /* Deepest Black */
+            #1a0522 25%,        /* Darker Wine shadow for better contrast */
+            #2d093b 35%,        /* Your purple tone */
+            #0011ff 48%,        /* Fast transition to blue */
+            #00f2ff 50%,        /* NEON LIGHTNING STRIKE (Center) */
+            #2d35a1 52%,        /* Fast transition to indigo */
+            #2d093b 65%,        /* Returning to purple */
+            #1a0522 75%,        /* Dark Wine shadow */
+            #000000 100%        /* Absolute Bottom */
+        ) !important;
         
-        /* Ensures the background stays fixed and covers the entire screen */
         background-attachment: fixed !important;
         background-size: cover !important;
-        
-        /* Fallback color if the gradient fails to load */
-        background-color: #060b10 !important; 
-        
-        /* Layout fixes: ensures full height and vertical stacking */
+        background-color: #060b10 !important; /* Solid fallback */
         min-height: 100vh;
+        
+        /* Fix for mobile viewports */
         display: flex;
         flex-direction: column;
     }
+
+
 }
 
 /* ===== Sticky Header ===== */
@@ -1562,7 +1576,4 @@ p {
     min-width: 300px; /* Prevents them from getting too skinny */
 }
 }
-
-
-
 
