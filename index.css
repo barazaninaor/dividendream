@@ -101,26 +101,21 @@
 
 @media screen and (max-width: 768px) {
     body {
-        /* 1. Core: Intense Cyan (#00d2ff)
-           2. Inner Glow: Electric Blue (#0077ff)
-           3. Nebula: Deep Purple (#411464) 
-           4. Space: Deep Black (#060b10)
-        */
-        background: radial-gradient(circle, #2a0a4d 0%, #05010a 100%);
-        ) !important;
+        /* Background gradient: transitioning from Deep Purple to Space Black */
+        background: radial-gradient(circle, #2a0a4d 0%, #05010a 100%) !important;
         
+        /* Ensures the background stays fixed and covers the entire screen */
         background-attachment: fixed !important;
         background-size: cover !important;
-        background-color: #060b10 !important; /* Solid fallback */
-        min-height: 100vh;
         
-        /* Fix for mobile viewports */
+        /* Fallback color if the gradient fails to load */
+        background-color: #060b10 !important; 
+        
+        /* Layout fixes: ensures full height and vertical stacking */
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
     }
-
-
-}
 
 /* ===== Sticky Header ===== */
 #site-header {
@@ -1566,5 +1561,6 @@ p {
     min-width: 300px; /* Prevents them from getting too skinny */
 }
 }
+
 
 
