@@ -106,17 +106,7 @@
            3. Nebula: Deep Purple (#411464) 
            4. Space: Deep Black (#060b10)
         */
-        background: linear-gradient(
-            180deg, 
-            #000000 0%,         /* Deepest Black */
-            #1a0522 25%,        /* Darker Wine shadow for better contrast */
-            #2d093b 35%,        /* Your purple tone */
-            #0011ff 48%,        /* Fast transition to blue */
-            #00f2ff 50%,        /* NEON LIGHTNING STRIKE (Center) */
-            #2d35a1 52%,        /* Fast transition to indigo */
-            #2d093b 65%,        /* Returning to purple */
-            #1a0522 75%,        /* Dark Wine shadow */
-            #000000 100%        /* Absolute Bottom */
+        background: radial-gradient(circle, #2a0a4d 0%, #05010a 100%);
         ) !important;
         
         background-attachment: fixed !important;
@@ -1576,4 +1566,5 @@ p {
     min-width: 300px; /* Prevents them from getting too skinny */
 }
 }
+
 
