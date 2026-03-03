@@ -116,6 +116,7 @@
         display: flex;
         flex-direction: column;
     }
+}
 
 /* ===== Sticky Header ===== */
 #site-header {
@@ -1561,6 +1562,7 @@ p {
     min-width: 300px; /* Prevents them from getting too skinny */
 }
 }
+
 
 
 
